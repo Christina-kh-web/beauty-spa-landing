@@ -1,1 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Aesthetic Clinic | Premium Beauty & Spa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* === ՀԻՄՆԱԿԱՆ ՈՃԵՐ === */
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #2C2C2C;
+            --accent-color: #A68B6C;
+            --light-beige: #E8E4DF;
+            --white: #FFFFFF;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--text-color);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 1px solid var(--text-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        /* === HEADER / NAV === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light-beige);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* === HERO SECTION === */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero .btn {
+            background-color: var(--white);
+            color: var(--text-color);
+            border-color: var(--white);
+        }
+
+        .hero .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* === SERVICES SECTION === */
+        .services { padding: 100px 0; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--light-beige);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+        }
+
+        .service-card .price {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* === ABOUT SECTION === */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light-beige);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials { padding: 100px 0; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-card h4 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === CONTACT / BOOKING === */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--text-color);
+            color: var(--white);
+        }
+
+        .contact .section-title { color: var(--white); }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: transparent;
+            border: 1px solid #555;
+            color: var(--white);
+            font-family: 'Lato', sans-serif;
+        }
+
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .contact-form .btn {
+            background-color: var(--white);
+            color: var(--text-color);
+            border-color: var(--white);
+            width: 100%;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: #1a1a1a;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Պարզության համար մոբայլ մենյուն թաքցված է */
+            .about-content, .contact-container { grid-template-columns: 1fr; }
+            .about-img img { height: 300px; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">AURA CLINIC</div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Experience the Art<br>of Radiance</h1>
+            <p>Premium aesthetic treatments tailored for your natural beauty.</p>
+            <a href="#contact" class="btn">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <p class="section-subtitle">Our Expertise</p>
+            <h2 class="section-title">Signature Treatments</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>HydraFacial Glow</h3>
+                    <p class="price">$120</p>
+                    <p>Deep cleansing, exfoliation, and hydration for an instant, radiant glow.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Laser Skin Therapy</h3>
+                    <p class="price">$150</p>
+                    <p>Advanced laser technology to reduce pigmentation and rejuvenate skin texture.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Aromatherapy Massage</h3>
+                    <p class="price">$90</p>
+                    <p>A deeply relaxing full-body massage using premium organic essential oils.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spa Interior">
+                </div>
+                <div class="about-text">
+                    <p class="section-subtitle" style="text-align: left; margin-bottom: 1rem;">Our Philosophy</p>
+                    <h2>Where Science Meets Serenity</h2>
+                    <p>At Aura Clinic, we believe that true beauty begins with healthy skin. Our team of certified aesthetic experts combines cutting-edge technology with holistic wellness practices.</p>
+                    <p>Every treatment is uniquely customized to address your specific skin concerns, ensuring visible, long-lasting results in a tranquil, luxurious environment.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Meet Our Experts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <p class="section-subtitle">Client Love</p>
+            <h2 class="section-title">What They Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"The best facial I've ever had. My skin has never looked this clear and glowing. The staff is incredibly professional."</p>
+                    <h4>— Sarah M.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A truly luxurious experience. From the moment I walked in, I felt relaxed. The laser therapy results are amazing."</p>
+                    <h4>— Emily R.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Aura Clinic is a hidden gem. The attention to detail and personalized care makes it my go-to place for skincare."</p>
+                    <h4>— Jessica T.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <p class="section-subtitle" style="color: var(--accent-color);">Get in Touch</p>
+            <h2 class="section-title">Book Your Appointment</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Visit Us</h3>
+                    <p>123 Beauty Boulevard, Suite 100<br>Yerevan, Armenia 0010</p>
+                    <br>
+                    <h3>Contact</h3>
+                    <p>Phone: +374 99 123 456</p>
+                    <p>Email: hello@auraclinic.com</p>
+                    <br>
+                    <h3>Hours</h3>
+                    <p>Mon - Fri: 9:00 AM - 8:00 PM</p>
+                    <p>Sat: 10:00 AM - 6:00 PM</p>
+                </div>
+                <form class="contact-form" id="bookingForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <select required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option value="hydrafacial">HydraFacial Glow</option>
+                        <option value="laser">Laser Skin Therapy</option>
+                        <option value="massage">Aromatherapy Massage</option>
+                    </select>
+                    <textarea rows="4" placeholder="Preferred Date & Time / Additional Notes"></textarea>
+                    <button type="submit" class="btn">Request Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aura Aesthetic Clinic. All Rights Reserved. Designed by Kristina Khachatryan.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling (Prevents page reload and shows alert)
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your booking request has been received. We will contact you shortly to confirm.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
